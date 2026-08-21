@@ -52,3 +52,4 @@ class Library:
                 self.show_individual(ch)
 
 l1=Library()
+l2=Library()
