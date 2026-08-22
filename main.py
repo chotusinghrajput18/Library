@@ -1,10 +1,13 @@
 class Library:
+    # cart
     cart=[]
+    # dictionary for categories
     book={
         "Story":["The Jungle Book","Mogli","Chota Bheem"],
         "Coding":["C","Python","Html","Java","JavaScript"],
         "Computer":["MS Excel","MS Powerpoint","MS Word"]
     }
+    # dictionary for price 
     price={
         "The Jungle Book":349,
         "Mogli":249,
@@ -18,6 +21,7 @@ class Library:
         "MS Powerpoint":399,
         "MS Word":499
     }
+    # initialization
     def __init__(self):
         print("You are LogedIn")
         self.show_categories()
