@@ -25,6 +25,7 @@ class Library:
     def __init__(self):
         print("You are LogedIn")
         self.show_categories()
+    # bill method
     def bill(self):
         total=[]
         for category in self.book:
@@ -33,7 +34,7 @@ class Library:
                     total.append(self.price[item])
         print("Your Total Bill is:",sum(total))
         
-        
+    # method for individual items
     def show_individual(self,individual):
         print(list(self.book[individual]))
         opt=str(input("choose an option to add or q/Q for back:").title())
@@ -44,7 +45,7 @@ class Library:
         else:
             print("Invalid Choice")
 
-
+    # methods for categories
     def show_categories(self):
         print("-----Welcome to Library-----")
         print(list(self.book.keys()))
