@@ -61,15 +61,15 @@ class Library:
         
         for i, category in enumerate(categories, 1):
             print(i, category)
-            print("B. Bill")
-            print("Q. Exit")
-            ch = input("Choose the Category: ").strip()
-            if ch.lower() == "b":
-                self.bill()
-            elif ch.lower() == "q":
-                print("Thank you for visiting the Library!")
-                break
-        
+        print("B. Bill")
+        print("Q. Exit")
+        ch = input("Choose the Category: ").strip()
+        if ch.lower() == "b":
+            self.bill()
+        elif ch.lower() == "q":
+            print("Thank you for visiting the Library!")
+            return
+    
         else:
             try:
                 choice = int(ch)
