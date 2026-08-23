@@ -1,12 +1,11 @@
 class Library:
-    # cart
-    cart=[]
     # dictionary for categories
     book={
         "Story":["The Jungle Book","Mogli","Chota Bheem"],
         "Coding":["C","Python","Html","Java","JavaScript"],
         "Computer":["MS Excel","MS Powerpoint","MS Word"]
     }
+
     # dictionary for price 
     price={
         "The Jungle Book":349,
@@ -23,38 +22,64 @@ class Library:
     }
     # initialization
     def __init__(self):
-        print("You are LogedIn")
+        self.cart = []
+        print("You are Loged In")
         self.show_categories()
-    # bill method
+
+    # function of Bill
     def bill(self):
-        total=[]
-        for category in self.book:
-            for item in self.cart:
-                if item in self.book[category] and item in self.price:
-                    total.append(self.price[item])
-        print("Your Total Bill is:",sum(total))
+        total =0
+        for item in self.cart:
+            for item in self.price:
+                total+= self.price[item]
+        print("Your Total Bill is: ",total)
         
     # method for individual items
-    def show_individual(self,individual):
-        print(list(self.book[individual]))
-        opt=str(input("choose an option to add or q/Q for back:").title())
-        if opt in self.book[individual]:
-            self.cart.append(opt)
-        elif opt in "qQ":
-            self.show_categories()
-        else:
-            print("Invalid Choice")
+    def show_individual(self,category):
+        print("\nAvailable Books:")
+        for i,item in enumerate(self.book[category],1):
+            print(i,"-",item)
+
+        opt=input("choose an option to add or q/Q for back:").strip()
+        if opt.lower() == "q":
+            return
+        try:
+            choice =int(opt)
+            if 1 <= choice <= len(self.book[category]):
+                selected_book = self.book[category][choice - 1]
+                self.cart.append(selected_book)
+                print(f"{selected_book} added to cart.")
+            else:
+                print("Invalid Choice")
+        except ValueError:
+            print("Please enter a valid number.")
 
     # methods for categories
     def show_categories(self):
         print("-----Welcome to Library-----")
-        print(list(self.book.keys()))
-        ch=str(input("Chose the Category or b/B for Bill: ").title())
-        if ch in "bB":
-            self.bill()
-        else: 
-            for ch in list(self.book.keys()):
-                self.show_individual(ch)
+        categories = list(self.book.keys())
+        
+        for i, category in enumerate(categories, 1):
+            print(i, category)
+            print("B. Bill")
+            print("Q. Exit")
+            ch = input("Choose the Category: ").strip()
+            if ch.lower() == "b":
+                self.bill()
+            elif ch.lower() == "q":
+                print("Thank you for visiting the Library!")
+                break
+        
+        else:
+            try:
+                choice = int(ch)
+                if 1 <= choice <= len(categories):
+                    category = categories[choice - 1]
+                    self.show_individual(category)
+                else:
+                    print("Invalid Choice")
+            except ValueError:
+                print("Please enter a valid option.")
 # object calling
 l1=Library()
 l2=Library()
