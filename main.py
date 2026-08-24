@@ -30,7 +30,7 @@ class Library:
     def bill(self):
         total =0
         for item in self.cart:
-            for item in self.price:
+            if item in self.price:
                 total+= self.price[item]
         print("Your Total Bill is: ",total)
         
@@ -56,29 +56,30 @@ class Library:
 
     # methods for categories
     def show_categories(self):
-        print("-----Welcome to Library-----")
-        categories = list(self.book.keys())
+        while True:
+            print("-----Welcome to Library-----")
+            categories = list(self.book.keys())
         
-        for i, category in enumerate(categories, 1):
-            print(i, category)
-        print("B. Bill")
-        print("Q. Exit")
-        ch = input("Choose the Category: ").strip()
-        if ch.lower() == "b":
-            self.bill()
-        elif ch.lower() == "q":
-            print("Thank you for visiting the Library!")
-            return
+            for i, category in enumerate(categories, 1):
+                print(i, category)
+            print("B. Bill")
+            print("Q. Exit")
+            ch = input("Choose the Category: ").strip()
+            if ch.lower() == "b":
+                self.bill()
+            elif ch.lower() == "q":
+                print("Thank you for visiting the Library!")
+                break
     
-        else:
-            try:
-                choice = int(ch)
-                if 1 <= choice <= len(categories):
-                    category = categories[choice - 1]
-                    self.show_individual(category)
-                else:
-                    print("Invalid Choice")
-            except ValueError:
-                print("Please enter a valid option.")
+            else:
+                try:
+                    choice = int(ch)
+                    if 1 <= choice <= len(categories):
+                        category = categories[choice - 1]
+                        self.show_individual(category)
+                    else:
+                        print("Invalid Choice")
+                except ValueError:
+                    print("Please enter a valid option.")
 # object calling
 l1=Library()
