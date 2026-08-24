@@ -1,12 +1,12 @@
 class Library:
-    # dictionary for categories
+    # Dictionary for Categories
     book={
         "Story":["The Jungle Book","Mogli","Chota Bheem"],
         "Coding":["C","Python","Html","Java","JavaScript"],
         "Computer":["MS Excel","MS Powerpoint","MS Word"]
     }
 
-    # dictionary for price 
+    # Dictionary for Price 
     price={
         "The Jungle Book":349,
         "Mogli":249,
@@ -20,13 +20,13 @@ class Library:
         "MS Powerpoint":399,
         "MS Word":499
     }
-    # initialization
+    # Initialization
     def __init__(self):
         self.cart = []
         print("You are Loged In")
         self.show_categories()
 
-    # function of Bill
+    # Function of Bill
     def bill(self):
         total =0
         for item in self.cart:
@@ -34,7 +34,7 @@ class Library:
                 total+= self.price[item]
         print("Your Total Bill is: ",total)
         
-    # method for individual items
+    # Method for Individual Items
     def show_individual(self,category):
         print("\nAvailable Books:")
         for i,item in enumerate(self.book[category],1):
@@ -54,7 +54,7 @@ class Library:
         except ValueError:
             print("Please enter a valid number.")
 
-    # methods for categories
+    # Methods for Categories
     def show_categories(self):
         while True:
             print("-----Welcome to Library-----")
@@ -81,5 +81,5 @@ class Library:
                         print("Invalid Choice")
                 except ValueError:
                     print("Please enter a valid option.")
-# object calling
+# Object Calling
 l1=Library()
