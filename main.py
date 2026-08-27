@@ -3,7 +3,13 @@ class Library:
     book={
         "Story":["The Jungle Book","Mogli","Chota Bheem"],
         "Coding":["C","Python","Html","Java","JavaScript"],
-        "Computer":["MS Excel","MS Powerpoint","MS Word"]
+        "Computer":["MS Excel","MS Powerpoint","MS Word"],
+        "General":["Encyclopedia","Dictionary"],
+        "Science":["Physics","Chemistry","Biology"],
+        "History":["World History","Indian History"],
+        "Mathematics":["Algebra","Geometry","Calculus"],
+        "Art":["Painting","Sculpture","Photography"],
+        "Music":["Classical","Rock","Pop"],
     }
 
     # Dictionary for Price 
@@ -18,7 +24,23 @@ class Library:
         "JavaScript":499,
         "MS Excel":549,
         "MS Powerpoint":399,
-        "MS Word":499
+        "MS Word":499,
+        "Encyclopedia":699,
+        "Dictionary":399,
+        "Physics":599,
+        "Chemistry":599,
+        "Biology":599,
+        "World History":499,
+        "Indian History":399,
+        "Algebra":299,
+        "Geometry":299,
+        "Calculus":399,
+        "Painting":699,
+        "Sculpture":799,
+        "Photography":599,
+        "Classical":499,
+        "Rock":399,
+        "Pop":399
     }
     # Initialization
     def __init__(self):
